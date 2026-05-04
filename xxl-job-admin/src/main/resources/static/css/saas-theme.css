@@ -670,3 +670,304 @@ textarea.textarea[readonly] {
 		background-color: var(--saas-primary-hover) !important;
 	}
 }
+
+/* ================================================================
+   Dashboard / Info Boxes
+   ================================================================ */
+.info-box {
+	border-radius: 10px !important;
+	box-shadow: var(--saas-shadow-sm) !important;
+	border: none !important;
+	min-height: auto !important;
+	overflow: hidden;
+}
+
+.info-box-icon {
+	border-radius: 10px 0 0 10px !important;
+	width: 70px !important;
+	height: auto !important;
+	min-height: 80px !important;
+	display: flex !important;
+	align-items: center;
+	justify-content: center;
+}
+
+.info-box-icon > i {
+	font-size: 22px !important;
+}
+
+.info-box-content {
+	padding: 12px 16px !important;
+}
+
+.info-box-text {
+	font-size: 12px !important;
+	text-transform: uppercase !important;
+	letter-spacing: 0.5px !important;
+	color: var(--saas-text-secondary) !important;
+}
+
+.info-box-number {
+	font-size: 28px !important;
+	font-weight: 700 !important;
+}
+
+.progress {
+	height: 4px !important;
+	border-radius: 2px !important;
+	background: rgba(0,0,0,0.06) !important;
+	overflow: hidden;
+	margin-top: 8px !important;
+}
+
+.progress-bar {
+	height: 4px !important;
+	border-radius: 2px !important;
+}
+
+.progress-description {
+	font-size: 11px !important;
+	color: var(--saas-text-muted) !important;
+	margin-top: 4px !important;
+}
+
+/* Info-box color overrides */
+.info-box.bg-aqua,
+.info-box.bg-aqua > .info-box-icon {
+	background: var(--saas-primary) !important;
+}
+
+.info-box.bg-aqua > .info-box-icon {
+	background: rgba(255,255,255,0.15) !important;
+}
+
+.info-box.bg-yellow,
+.info-box.bg-yellow > .info-box-icon {
+	background: var(--saas-warning) !important;
+}
+
+.info-box.bg-yellow > .info-box-icon {
+	background: rgba(255,255,255,0.15) !important;
+}
+
+.info-box.bg-yellow .info-box-number {
+	color: #fff !important;
+}
+
+.info-box.bg-yellow .info-box-text,
+.info-box.bg-yellow .progress-description {
+	color: rgba(255,255,255,0.75) !important;
+}
+
+.info-box.bg-yellow .progress {
+	background: rgba(0,0,0,0.1) !important;
+}
+
+.info-box.bg-green,
+.info-box.bg-green > .info-box-icon {
+	background: var(--saas-success) !important;
+}
+
+.info-box.bg-green > .info-box-icon {
+	background: rgba(255,255,255,0.15) !important;
+}
+
+.info-box.bg-green .info-box-number {
+	color: #fff !important;
+}
+
+.info-box.bg-green .info-box-text,
+.info-box.bg-green .progress-description {
+	color: rgba(255,255,255,0.75) !important;
+}
+
+.info-box.bg-green .progress {
+	background: rgba(0,0,0,0.1) !important;
+}
+
+/* ================================================================
+   Box Header / Title
+   ================================================================ */
+.box-title {
+	font-size: 14px !important;
+	font-weight: 600 !important;
+	color: var(--saas-text) !important;
+}
+
+.box-tools .btn {
+	box-shadow: none !important;
+}
+
+/* ================================================================
+   Log Detail / Console
+   ================================================================ */
+#logConsole {
+	background: #0F172A !important;
+	color: #E2E8F0 !important;
+	border-radius: 8px !important;
+	padding: 16px !important;
+	font-family: 'SF Mono', 'Monaco', 'Cascadia Code', 'Consolas', monospace !important;
+	font-size: 12px !important;
+	line-height: 1.7 !important;
+	min-height: 300px;
+	border: 1px solid #1E293B !important;
+	overword-wrap: break-word;
+}
+
+#logConsole br {
+	line-height: 1.7;
+}
+
+/* ================================================================
+   Alert Boxes
+   ================================================================ */
+.alert {
+	border-radius: var(--saas-radius) !important;
+	border: none !important;
+	font-size: 13px !important;
+	padding: 12px 16px !important;
+}
+
+.alert-info {
+	background: var(--saas-primary-light) !important;
+	color: var(--saas-primary) !important;
+}
+
+.alert-success {
+	background: #ECFDF5 !important;
+	color: var(--saas-success) !important;
+}
+
+.alert-warning {
+	background: #FFFBEB !important;
+	color: #92400E !important;
+}
+
+.alert-danger {
+	background: #FEF2F2 !important;
+	color: var(--saas-danger) !important;
+}
+
+/* ================================================================
+   ECharts Override (Dashboard Charts)
+   ================================================================ */
+
+/* ================================================================
+   Date Range Picker
+   ================================================================ */
+.daterangepicker {
+	border-radius: var(--saas-radius) !important;
+	box-shadow: var(--saas-shadow-lg) !important;
+	border: 1px solid var(--saas-border) !important;
+	font-family: var(--saas-font) !important;
+}
+
+.daterangepicker .ranges li {
+	font-size: 13px !important;
+	padding: 8px 16px !important;
+	transition: background var(--saas-transition);
+}
+
+.daterangepicker .ranges li:hover {
+	background: var(--saas-primary-light) !important;
+}
+
+.daterangepicker .ranges li.active {
+	background: var(--saas-primary) !important;
+	color: #fff !important;
+}
+
+.daterangepicker .applyBtn,
+.daterangepicker .cancelBtn {
+	border-radius: var(--saas-radius-btn) !important;
+	font-size: 13px !important;
+}
+
+.daterangepicker .applyBtn {
+	background: var(--saas-primary) !important;
+	border-color: var(--saas-primary) !important;
+}
+
+/* ================================================================
+   Code Editor / GLUE IDE
+   ================================================================ */
+.CodeMirror {
+	border-radius: var(--saas-radius) !important;
+	border: 1px solid var(--saas-border) !important;
+	font-family: 'SF Mono', 'Monaco', 'Cascadia Code', 'Consolas', monospace !important;
+	font-size: 13px !important;
+	height: auto !important;
+}
+
+.CodeMirror-gutters {
+	background: #F1F5F9 !important;
+	border-right: 1px solid var(--saas-border) !important;
+}
+
+/* ================================================================
+   Layer (Popup)
+   ================================================================ */
+.layui-layer {
+	border-radius: 10px !important;
+	box-shadow: 0 20px 60px rgba(0,0,0,0.15) !important;
+}
+
+.layui-layer-title {
+	background: var(--saas-bg-white) !important;
+	border-bottom: 1px solid var(--saas-border) !important;
+	font-size: 14px !important;
+	font-weight: 600 !important;
+	color: var(--saas-text) !important;
+	padding: 0 20px !important;
+	height: 46px !important;
+	line-height: 46px !important;
+}
+
+.layui-layer-btn a {
+	border-radius: var(--saas-radius-btn) !important;
+	font-size: 13px !important;
+}
+
+.layui-layer-setwin a {
+	top: 12px !important;
+}
+
+/* ================================================================
+   HR Divider in Forms
+   ================================================================ */
+.modal-body hr {
+	border-top: 1px solid var(--saas-border) !important;
+	margin: 16px 0 !important;
+}
+
+/* ================================================================
+   Help Page
+   ================================================================ */
+.help-doc {
+	background: var(--saas-bg-white) !important;
+	border: 1px solid var(--saas-border) !important;
+	border-radius: 10px !important;
+	padding: 24px !important;
+	font-size: 13px !important;
+	line-height: 1.8 !important;
+}
+
+.help-doc h1, .help-doc h2, .help-doc h3 {
+	color: var(--saas-text) !important;
+}
+
+.help-doc h1 { font-size: 20px !important; margin-bottom: 12px !important; }
+.help-doc h2 { font-size: 16px !important; margin: 20px 0 10px !important; }
+.help-doc h3 { font-size: 14px !important; margin: 16px 0 8px !important; }
+
+.help-doc code, .help-doc pre {
+	background: #F1F5F9 !important;
+	border-radius: 4px !important;
+	padding: 2px 6px !important;
+	font-size: 12px !important;
+}
+
+.help-doc pre {
+	padding: 12px 16px !important;
+	overflow-x: auto;
+}
