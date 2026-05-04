@@ -9,31 +9,29 @@
 	<!-- 1-style end -->
 
 	<style>
-		/* ====== Dark SaaS Design Tokens ====== */
+		/* ====== SaaS Light Design Tokens ====== */
 		:root {
-			--color-primary: #3B82F6;
-			--color-primary-hover: #2563EB;
-			--color-primary-glow: rgba(59, 130, 246, 0.15);
-			--color-cta: #F97316;
-			--color-text-primary: #F1F5F9;
-			--color-text-secondary: #94A3B8;
-			--color-text-muted: #64748B;
-			--color-border: #1E293B;
-			--color-border-focus: #3B82F6;
-			--color-bg: #0B0F19;
-			--color-bg-card: #111827;
-			--color-bg-input: #1F2937;
-			--color-white: #FFFFFF;
-			--color-error: #F87171;
+			--color-primary: #2563EB;
+			--color-primary-hover: #1D4ED8;
+			--color-primary-glow: rgba(37, 99, 235, 0.12);
+			--color-text-primary: #1E293B;
+			--color-text-secondary: #64748B;
+			--color-text-muted: #94A3B8;
+			--color-border: #E2E8F0;
+			--color-border-focus: #2563EB;
+			--color-bg: #F8FAFC;
+			--color-bg-card: #FFFFFF;
+			--color-bg-input: #FFFFFF;
+			--color-error: #EF4444;
 			--radius-sm: 8px;
 			--radius-md: 12px;
 			--radius-lg: 16px;
-			--shadow-card: 0 1px 3px rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.3);
+			--shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+			--shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07);
 			--transition: 200ms ease;
 			--font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 		}
 
-		/* ====== Reset ====== */
 		* { box-sizing: border-box; margin: 0; padding: 0; }
 
 		/* ====== Override AdminLTE ====== */
@@ -45,12 +43,13 @@
 			font-family: var(--font) !important;
 			padding: 0 !important;
 			margin: 0 !important;
+			color: var(--color-text-primary);
 		}
 
 		/* ====== Left Brand Panel ====== */
 		.login-brand {
 			flex: 1;
-			background: var(--color-bg-card);
+			background: var(--color-primary);
 			display: flex !important;
 			flex-direction: column;
 			justify-content: center;
@@ -58,43 +57,41 @@
 			padding: 60px;
 			position: relative;
 			overflow: hidden;
-			border-right: 1px solid var(--color-border);
 		}
 
-		/* Subtle decorative circles */
 		.login-brand::before {
 			content: '';
 			position: absolute;
-			top: -80px;
-			right: -80px;
-			width: 320px;
-			height: 320px;
+			top: -100px;
+			right: -100px;
+			width: 360px;
+			height: 360px;
 			border-radius: 50%;
-			border: 1px solid rgba(59, 130, 246, 0.08);
+			background: rgba(255,255,255,0.06);
 		}
 
 		.login-brand::after {
 			content: '';
 			position: absolute;
-			bottom: -60px;
-			left: -60px;
-			width: 240px;
-			height: 240px;
+			bottom: -80px;
+			left: -80px;
+			width: 280px;
+			height: 280px;
 			border-radius: 50%;
-			border: 1px solid rgba(59, 130, 246, 0.05);
+			background: rgba(255,255,255,0.04);
 		}
 
 		.brand-content {
 			position: relative;
 			z-index: 1;
 			text-align: center;
-			color: var(--color-white);
+			color: #fff;
 		}
 
 		.brand-logo {
 			width: 64px;
 			height: 64px;
-			background: var(--color-primary);
+			background: rgba(255,255,255,0.15);
 			border-radius: var(--radius-lg);
 			display: flex;
 			align-items: center;
@@ -111,12 +108,11 @@
 			font-weight: 700;
 			letter-spacing: -0.5px;
 			margin-bottom: 10px;
-			color: var(--color-text-primary);
 		}
 
 		.brand-subtitle {
 			font-size: 14px;
-			color: var(--color-text-secondary);
+			color: rgba(255,255,255,0.7);
 			line-height: 1.6;
 			max-width: 300px;
 		}
@@ -129,7 +125,7 @@
 		}
 
 		.brand-features li {
-			color: var(--color-text-secondary);
+			color: rgba(255,255,255,0.85);
 			font-size: 14px;
 			padding: 10px 0;
 			display: flex;
@@ -138,7 +134,7 @@
 		}
 
 		.brand-features li .fa {
-			color: var(--color-primary);
+			color: rgba(255,255,255,0.6);
 			font-size: 12px;
 			width: 20px;
 			text-align: center;
@@ -153,7 +149,7 @@
 			flex-direction: column;
 			justify-content: center;
 			padding: 60px;
-			background: var(--color-bg);
+			background: var(--color-bg-card);
 		}
 
 		.form-header {
@@ -233,7 +229,7 @@
 		/* Error */
 		.form-group.has-error .form-control {
 			border-color: var(--color-error) !important;
-			box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.12) !important;
+			box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1) !important;
 		}
 
 		.form-group.has-error .input-icon {
@@ -313,7 +309,7 @@
 
 		.btn-login:hover {
 			background: var(--color-primary-hover);
-			box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+			box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
 		}
 
 		.btn-login:active {
@@ -338,46 +334,21 @@
 			.login-brand {
 				padding: 36px 24px;
 				min-height: auto;
-				border-right: none;
-				border-bottom: 1px solid var(--color-border);
 			}
-			.brand-features {
-				display: none;
-			}
+			.brand-features { display: none; }
 			.brand-content {
 				display: flex;
 				align-items: center;
 				gap: 16px;
 			}
-			.brand-logo {
-				margin: 0;
-				width: 48px;
-				height: 48px;
-				font-size: 18px;
-			}
-			.brand-title {
-				font-size: 22px;
-				margin-bottom: 2px;
-			}
-			.brand-subtitle {
-				margin-bottom: 0;
-			}
-			.login-form-panel {
-				width: 100%;
-				min-width: auto;
-				padding: 32px 24px;
-			}
-			.login-footer {
-				position: static;
-				text-align: center;
-				padding: 16px;
-			}
+			.brand-logo { margin: 0; width: 48px; height: 48px; font-size: 18px; }
+			.brand-title { font-size: 22px; margin-bottom: 2px; }
+			.brand-subtitle { margin-bottom: 0; }
+			.login-form-panel { width: 100%; min-width: auto; padding: 32px 24px; }
+			.login-footer { position: static; text-align: center; padding: 16px; }
 		}
 
-		/* Layer override */
-		.layui-layer {
-			border-radius: var(--radius-md) !important;
-		}
+		.layui-layer { border-radius: var(--radius-md) !important; }
 	</style>
 </head>
 <body class="hold-transition">
