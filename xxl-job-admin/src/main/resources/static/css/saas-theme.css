@@ -472,17 +472,6 @@ textarea.form-control {
 	background-color: rgba(15, 23, 42, 0.5) !important;
 }
 
-/* ====== Form Labels (modal) ====== */
-.control-label {
-	font-weight: 600 !important;
-	font-size: 13px !important;
-	color: var(--saas-text) !important;
-}
-
-.form-horizontal .form-group {
-	margin-bottom: 16px !important;
-}
-
 /* ====== Section Dividers in Modals ====== */
 .modal-body p[style*="border-bottom"] {
 	font-size: 13px !important;
@@ -491,6 +480,42 @@ textarea.form-control {
 	border-bottom: 1px solid var(--saas-border) !important;
 	padding-bottom: 8px !important;
 	margin-bottom: 16px !important;
+}
+
+/* ====== Modal Form Grid Alignment ====== */
+.modal-body .form-group {
+	margin-bottom: 14px !important;
+}
+
+.modal-body .col-sm-2,
+.modal-body .col-sm-4,
+.modal-body .col-sm-8,
+.modal-body .col-sm-10 {
+	padding-left: 8px !important;
+	padding-right: 8px !important;
+}
+
+.modal-body .control-label {
+	padding-top: 8px !important;
+	text-align: right !important;
+	font-weight: 600 !important;
+	font-size: 13px !important;
+	color: var(--saas-text) !important;
+}
+
+.modal-body .form-control,
+.modal-body select.form-control,
+.modal-body textarea.form-control {
+	height: 38px !important;
+	vertical-align: middle;
+}
+
+.modal-body textarea.form-control {
+	height: auto !important;
+}
+
+.modal-body .form-horizontal .form-group {
+	margin-bottom: 14px !important;
 }
 
 /* ====== Navbar Dropdown ====== */
@@ -635,6 +660,21 @@ textarea.textarea[readonly] {
 	padding: 14px 16px !important;
 }
 
+#data_filter .row > div {
+	padding-left: 6px !important;
+	padding-right: 6px !important;
+}
+
+#data_filter .form-control,
+#data_filter select.form-control {
+	height: 36px !important;
+}
+
+#data_filter .input-group-addon {
+	height: 36px !important;
+	line-height: 36px !important;
+}
+
 #data_filter .btn-block {
 	height: 36px !important;
 	display: flex !important;
@@ -644,14 +684,25 @@ textarea.textarea[readonly] {
 
 /* ====== Operation Button Bar ====== */
 #data_operation {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	gap: 6px;
+	display: flex !important;
+	flex-wrap: wrap !important;
+	align-items: center !important;
+	gap: 6px !important;
+	float: none !important;
 }
 
 #data_operation .btn {
 	white-space: nowrap;
+}
+
+/* Fix box-header containing #data_operation */
+.box-header {
+	display: flex;
+	align-items: center;
+}
+
+.box-header.pull-left {
+	float: none !important;
 }
 
 /* ====== Logo Mini/Lg ====== */
