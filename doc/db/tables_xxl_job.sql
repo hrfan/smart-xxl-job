@@ -170,7 +170,7 @@ VALUES (1, 1, '示例任务01', now(), now(), 'XXL', '', 'CRON', '0 0 0 * * ? *'
         now(), '');
 
 INSERT INTO xxl_job_user(id, username, password, role, permission)
-VALUES (1, 'admin', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', 1, NULL);
+VALUES (1, 'admin', '017d7ac4bdfce8f705c6e8c39a861802ef6caefd99f50ad4de7484a1e524cb99', 1, NULL);
 
 INSERT INTO xxl_job_lock (lock_name)
 VALUES ('schedule_lock');
