@@ -22,6 +22,8 @@
 	--saas-danger: #EF4444;
 	--saas-info: #3B82F6;
 	--saas-radius: 8px;
+	--saas-radius-btn: 4px;
+	--saas-radius-input: 6px;
 	--saas-shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
 	--saas-shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
 	--saas-shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08);
@@ -277,7 +279,7 @@ html, body {
 /* ====== Forms ====== */
 .form-control {
 	border: 1.5px solid var(--saas-border) !important;
-	border-radius: 6px !important;
+	border-radius: var(--saas-radius-input) !important;
 	color: var(--saas-text) !important;
 	font-size: 13px !important;
 	box-shadow: none !important;
@@ -309,11 +311,11 @@ select.form-control {
 	border-color: var(--saas-border) !important;
 	color: var(--saas-text-secondary) !important;
 	font-size: 13px !important;
-	border-radius: 6px 0 0 6px !important;
+	border-radius: var(--saas-radius-input) 0 0 var(--saas-radius-input) !important;
 }
 
 .input-group .form-control:first-child {
-	border-radius: 0 6px 6px 0 !important;
+	border-radius: 0 var(--saas-radius-input) var(--saas-radius-input) 0 !important;
 }
 
 textarea.form-control {
@@ -353,13 +355,14 @@ textarea.form-control {
 
 /* ====== Buttons ====== */
 .btn {
-	border-radius: 6px !important;
+	border-radius: var(--saas-radius-btn) !important;
 	font-size: 13px !important;
 	font-weight: 500 !important;
 	transition: all var(--saas-transition) !important;
 	padding: 6px 14px !important;
 	border: 1px solid transparent !important;
 	cursor: pointer;
+	letter-spacing: 0.2px;
 }
 
 .btn-primary {
@@ -424,8 +427,9 @@ textarea.form-control {
 }
 
 .btn-sm {
-	padding: 4px 10px !important;
+	padding: 3px 10px !important;
 	font-size: 12px !important;
+	border-radius: var(--saas-radius-btn) !important;
 }
 
 .btn-block {
