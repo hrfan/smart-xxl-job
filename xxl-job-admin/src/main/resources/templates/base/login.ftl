@@ -9,169 +9,261 @@
 	<!-- 1-style end -->
 
 	<style>
-		* { box-sizing: border-box; }
+		:root {
+			/* SaaS Design Tokens */
+			--color-primary: #2563EB;
+			--color-primary-hover: #1D4ED8;
+			--color-primary-light: #EFF6FF;
+			--color-primary-50: #F8FAFC;
+			--color-cta: #F97316;
+			--color-text-primary: #1E293B;
+			--color-text-secondary: #64748B;
+			--color-text-muted: #94A3B8;
+			--color-border: #E2E8F0;
+			--color-border-focus: #2563EB;
+			--color-bg: #F8FAFC;
+			--color-white: #FFFFFF;
+			--color-error: #EF4444;
+			--color-error-bg: #FEF2F2;
+			--radius-sm: 6px;
+			--radius-md: 10px;
+			--radius-lg: 16px;
+			--radius-xl: 20px;
+			--shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+			--shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+			--shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.04);
+			--shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.08), 0 8px 10px -6px rgba(0,0,0,0.04);
+			--transition: 200ms ease;
+			--font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+		}
+
+		* { box-sizing: border-box; margin: 0; padding: 0; }
 
 		body.hold-transition {
-			background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+			background: var(--color-bg);
 			min-height: 100vh;
 			display: flex;
-			align-items: center;
-			justify-content: center;
-			font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+			font-family: var(--font-family);
+			color: var(--color-text-primary);
 			overflow: hidden;
 		}
 
-		/* animated background particles */
-		body.hold-transition::before {
+		/* Left panel - brand */
+		.login-brand {
+			flex: 1;
+			background: var(--color-primary);
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			padding: 60px;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.login-brand::before {
 			content: '';
-			position: fixed;
-			top: -50%;
-			left: -50%;
-			width: 200%;
-			height: 200%;
-			background: radial-gradient(ellipse at 20% 50%, rgba(72, 50, 180, 0.15) 0%, transparent 50%),
-						radial-gradient(ellipse at 80% 20%, rgba(56, 134, 255, 0.12) 0%, transparent 50%),
-						radial-gradient(ellipse at 50% 80%, rgba(140, 80, 220, 0.1) 0%, transparent 50%);
-			animation: bgFloat 20s ease-in-out infinite;
-			z-index: 0;
+			position: absolute;
+			top: -100px;
+			right: -100px;
+			width: 400px;
+			height: 400px;
+			border-radius: 50%;
+			background: rgba(255,255,255,0.06);
 		}
 
-		@keyframes bgFloat {
-			0%, 100% { transform: translate(0, 0) rotate(0deg); }
-			33% { transform: translate(30px, -30px) rotate(1deg); }
-			66% { transform: translate(-20px, 20px) rotate(-1deg); }
+		.login-brand::after {
+			content: '';
+			position: absolute;
+			bottom: -80px;
+			left: -80px;
+			width: 300px;
+			height: 300px;
+			border-radius: 50%;
+			background: rgba(255,255,255,0.04);
 		}
 
-		.login-box {
+		.brand-content {
 			position: relative;
 			z-index: 1;
-			width: 420px;
-			max-width: 90vw;
-			background: rgba(255, 255, 255, 0.03);
-			backdrop-filter: blur(20px);
-			-webkit-backdrop-filter: blur(20px);
-			border: 1px solid rgba(255, 255, 255, 0.08);
-			border-radius: 24px;
-			padding: 48px 40px 40px;
-			box-shadow: 0 32px 64px rgba(0, 0, 0, 0.3),
-						0 0 0 1px rgba(255, 255, 255, 0.05) inset;
-			animation: cardIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
-		}
-
-		@keyframes cardIn {
-			from { opacity: 0; transform: translateY(30px) scale(0.96); }
-			to { opacity: 1; transform: translateY(0) scale(1); }
-		}
-
-		.login-logo {
 			text-align: center;
+			color: #fff;
+		}
+
+		.brand-logo {
+			width: 64px;
+			height: 64px;
+			background: rgba(255,255,255,0.15);
+			border-radius: var(--radius-lg);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin: 0 auto 24px;
+			font-size: 28px;
+			font-weight: 800;
+			letter-spacing: -1px;
+		}
+
+		.brand-title {
+			font-size: 32px;
+			font-weight: 700;
+			letter-spacing: -0.5px;
+			margin-bottom: 12px;
+		}
+
+		.brand-subtitle {
+			font-size: 15px;
+			color: rgba(255,255,255,0.7);
+			line-height: 1.6;
+			max-width: 320px;
+		}
+
+		.brand-features {
+			margin-top: 48px;
+			text-align: left;
+			list-style: none;
+		}
+
+		.brand-features li {
+			color: rgba(255,255,255,0.85);
+			font-size: 14px;
+			padding: 10px 0;
+			display: flex;
+			align-items: center;
+			gap: 12px;
+		}
+
+		.brand-features li::before {
+			content: '';
+			width: 20px;
+			height: 20px;
+			background: rgba(255,255,255,0.15);
+			border-radius: 50%;
+			flex-shrink: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.brand-features li .fa {
+			margin-right: 4px;
+			font-size: 10px;
+			color: rgba(255,255,255,0.6);
+		}
+
+		/* Right panel - login form */
+		.login-form-panel {
+			width: 480px;
+			min-width: 400px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			padding: 60px;
+			background: var(--color-white);
+		}
+
+		.form-header {
 			margin-bottom: 36px;
 		}
 
-		.login-logo a {
-			color: #fff !important;
-			font-size: 28px;
+		.form-header h2 {
+			font-size: 24px;
 			font-weight: 700;
-			letter-spacing: 1px;
-			text-decoration: none;
+			color: var(--color-text-primary);
+			margin-bottom: 8px;
 		}
 
-		.login-logo a b {
-			background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
-			-webkit-background-clip: text;
-			-webkit-text-fill-color: transparent;
-			background-clip: text;
+		.form-header p {
+			font-size: 14px;
+			color: var(--color-text-secondary);
 		}
 
-		.login-box-msg {
-			color: rgba(255, 255, 255, 0.5) !important;
-			font-size: 13px;
-			text-align: center;
-			margin-bottom: 28px;
-			letter-spacing: 0.5px;
-		}
-
-		.login-box-body {
-			padding: 0;
-			border: none;
-			background: transparent;
-			box-shadow: none;
-		}
-
-		.login-box-body .form-group {
+		/* Form inputs */
+		.form-group {
 			margin-bottom: 20px;
+		}
+
+		.form-group label {
+			display: block;
+			font-size: 13px;
+			font-weight: 600;
+			color: var(--color-text-primary);
+			margin-bottom: 6px;
+		}
+
+		.form-control {
+			width: 100%;
+			height: 44px;
+			padding: 0 14px 0 42px;
+			border: 1.5px solid var(--color-border);
+			border-radius: var(--radius-md);
+			font-size: 14px;
+			color: var(--color-text-primary);
+			background: var(--color-white);
+			transition: border-color var(--transition), box-shadow var(--transition);
+			outline: none;
+			font-family: var(--font-family);
+		}
+
+		.form-control::placeholder {
+			color: var(--color-text-muted);
+		}
+
+		.form-control:focus {
+			border-color: var(--color-border-focus);
+			box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+		}
+
+		.input-wrapper {
 			position: relative;
 		}
 
-		.login-box-body .form-group.has-feedback .form-control {
-			background: rgba(255, 255, 255, 0.06);
-			border: 1px solid rgba(255, 255, 255, 0.1);
-			border-radius: 12px;
-			color: #fff;
-			font-size: 14px;
-			padding: 14px 16px 14px 46px;
-			height: auto;
-			transition: all 0.3s ease;
-		}
-
-		.login-box-body .form-group.has-feedback .form-control::placeholder {
-			color: rgba(255, 255, 255, 0.35);
-		}
-
-		.login-box-body .form-group.has-feedback .form-control:focus {
-			background: rgba(255, 255, 255, 0.1);
-			border-color: rgba(96, 165, 250, 0.5);
-			box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.15);
-			outline: none;
-		}
-
-		.login-box-body .form-group.has-feedback .form-control-feedback {
-			color: rgba(255, 255, 255, 0.3);
-			font-size: 16px;
+		.input-icon {
+			position: absolute;
+			left: 14px;
 			top: 50%;
 			transform: translateY(-50%);
-			left: 16px;
-			right: auto;
-			z-index: 2;
+			color: var(--color-text-muted);
+			font-size: 15px;
+			pointer-events: none;
+			transition: color var(--transition);
 		}
 
-		.login-box-body .form-group.has-error .form-control {
-			border-color: rgba(248, 113, 113, 0.5);
-			box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.1);
+		.form-control:focus ~ .input-icon,
+		.form-control:focus + .input-icon {
+			color: var(--color-primary);
 		}
 
-		.login-box-body .form-group.has-error .form-control-feedback {
-			color: rgba(248, 113, 113, 0.7);
+		/* Error state */
+		.form-group.has-error .form-control {
+			border-color: var(--color-error);
+			box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
 		}
 
-		.login-box-body .help-block {
-			color: #f87171;
+		.form-group.has-error .input-icon {
+			color: var(--color-error);
+		}
+
+		.help-block {
+			color: var(--color-error);
 			font-size: 12px;
 			margin-top: 6px;
-			padding-left: 4px;
 		}
 
-		.login-box-body .row {
+		/* Remember me + forgot */
+		.form-options {
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
-			margin-top: 28px;
+			margin-bottom: 24px;
 		}
 
-		.login-box-body .row .col-xs-8,
-		.login-box-body .row .col-xs-4 {
-			width: auto;
-			padding: 0;
-		}
-
-		/* remember me checkbox */
-		.checkbox icheck label,
 		.checkbox label {
-			color: rgba(255, 255, 255, 0.45) !important;
-			font-size: 13px;
 			display: flex;
 			align-items: center;
 			gap: 8px;
+			font-size: 13px;
+			color: var(--color-text-secondary);
 			cursor: pointer;
 			user-select: none;
 		}
@@ -179,110 +271,150 @@
 		.checkbox label input[type="checkbox"] {
 			-webkit-appearance: none;
 			appearance: none;
-			width: 18px;
-			height: 18px;
-			border: 1.5px solid rgba(255, 255, 255, 0.2);
-			border-radius: 5px;
-			background: rgba(255, 255, 255, 0.05);
+			width: 16px;
+			height: 16px;
+			border: 1.5px solid var(--color-border);
+			border-radius: 4px;
 			cursor: pointer;
 			position: relative;
-			transition: all 0.2s ease;
+			transition: all var(--transition);
 			margin: 0;
+			flex-shrink: 0;
 		}
 
 		.checkbox label input[type="checkbox"]:checked {
-			background: linear-gradient(135deg, #60a5fa, #a78bfa);
-			border-color: transparent;
+			background: var(--color-primary);
+			border-color: var(--color-primary);
 		}
 
 		.checkbox label input[type="checkbox"]:checked::after {
 			content: '';
 			position: absolute;
-			left: 5px;
-			top: 2px;
+			left: 4.5px;
+			top: 1.5px;
 			width: 5px;
-			height: 9px;
+			height: 8px;
 			border: solid #fff;
 			border-width: 0 2px 2px 0;
 			transform: rotate(45deg);
 		}
 
-		/* login button */
-		.btn-primary {
-			background: linear-gradient(135deg, #60a5fa 0%, #7c3aed 100%) !important;
-			border: none !important;
-			border-radius: 12px !important;
-			color: #fff !important;
+		/* Submit button */
+		.btn-login {
+			width: 100%;
+			height: 44px;
+			background: var(--color-primary);
+			border: none;
+			border-radius: var(--radius-md);
+			color: #fff;
 			font-size: 14px;
 			font-weight: 600;
-			padding: 12px 32px;
-			letter-spacing: 0.5px;
 			cursor: pointer;
-			transition: all 0.3s ease;
-			box-shadow: 0 4px 15px rgba(96, 165, 250, 0.3);
+			transition: background var(--transition), box-shadow var(--transition), transform 100ms ease;
+			font-family: var(--font-family);
 		}
 
-		.btn-primary:hover {
-			transform: translateY(-1px);
-			box-shadow: 0 6px 25px rgba(96, 165, 250, 0.4);
-			background: linear-gradient(135deg, #93c5fd 0%, #8b5cf6 100%) !important;
+		.btn-login:hover {
+			background: var(--color-primary-hover);
+			box-shadow: var(--shadow-md);
 		}
 
-		.btn-primary:active {
-			transform: translateY(0);
+		.btn-login:active {
+			transform: scale(0.98);
 		}
 
-		/* footer */
+		/* Footer */
 		.login-footer {
-			text-align: center;
-			margin-top: 32px;
-			color: rgba(255, 255, 255, 0.2);
+			position: absolute;
+			bottom: 24px;
+			right: 60px;
+			color: var(--color-text-muted);
 			font-size: 12px;
 		}
 
-		/* layer popup style override */
+		/* Responsive */
+		@media (max-width: 900px) {
+			body.hold-transition {
+				flex-direction: column;
+			}
+			.login-brand {
+				padding: 40px 24px;
+				min-height: auto;
+			}
+			.brand-features {
+				display: none;
+			}
+			.login-form-panel {
+				width: 100%;
+				min-width: auto;
+				padding: 32px 24px;
+			}
+			.login-footer {
+				position: static;
+				text-align: center;
+				padding: 16px 24px;
+				left: 0;
+				right: 0;
+			}
+		}
+
+		/* Layer popup override */
 		.layui-layer {
-			border-radius: 12px !important;
+			border-radius: var(--radius-lg) !important;
 		}
 	</style>
 </head>
 <body class="hold-transition">
 
-	<!-- 2-biz start -->
-	<div class="login-box">
-		<div class="login-logo">
-			<a><b>XXL-JOB</b></a>
-		</div>
-		<form id="loginForm" method="post">
-			<div class="login-box-body">
-				<p class="login-box-msg">${I18n.admin_name}</p>
-				<div class="form-group has-feedback">
-					<input type="text" name="userName" class="form-control" placeholder="${I18n.login_username_placeholder}" maxlength="20" autocomplete="username">
-					<span class="fa fa-user form-control-feedback"></span>
-				</div>
-				<div class="form-group has-feedback">
-					<input type="password" name="password" class="form-control" placeholder="${I18n.login_password_placeholder}" maxlength="20" autocomplete="current-password">
-					<span class="fa fa-lock form-control-feedback"></span>
-				</div>
-				<div class="row">
-					<div class="col-xs-8">
-						<div class="checkbox">
-							<label>
-								<input type="checkbox" name="ifRemember"> ${I18n.login_remember_me}
-							</label>
-						</div>
-					</div>
-					<div class="col-xs-4">
-						<button type="submit" class="btn btn-primary btn-block btn-flat">${I18n.login_btn}</button>
-					</div>
-				</div>
-			</div>
-		</form>
-		<div class="login-footer">
-			XXL-JOB &copy; 2015-present, xuxueli
+	<!-- Left brand panel -->
+	<div class="login-brand">
+		<div class="brand-content">
+			<div class="brand-logo">XX</div>
+			<h1 class="brand-title">XXL-JOB</h1>
+			<p class="brand-subtitle">${I18n.admin_name}</p>
+			<ul class="brand-features">
+				<li><i class="fa fa-check"></i> 可视化任务调度管理</li>
+				<li><i class="fa fa-check"></i> 弹性扩容分布式执行</li>
+				<li><i class="fa fa-check"></i> 丰富的任务触发策略</li>
+			</ul>
 		</div>
 	</div>
-	<!-- 2-biz end -->
+
+	<!-- Right login form -->
+	<div class="login-form-panel">
+		<div class="form-header">
+			<h2>欢迎回来</h2>
+			<p>请登录到调度中心</p>
+		</div>
+		<form id="loginForm" method="post">
+			<div class="form-group">
+				<label>账号</label>
+				<div class="input-wrapper">
+					<input type="text" name="userName" class="form-control" placeholder="${I18n.login_username_placeholder}" maxlength="20" autocomplete="username">
+					<i class="fa fa-user input-icon"></i>
+				</div>
+			</div>
+			<div class="form-group">
+				<label>密码</label>
+				<div class="input-wrapper">
+					<input type="password" name="password" class="form-control" placeholder="${I18n.login_password_placeholder}" maxlength="20" autocomplete="current-password">
+					<i class="fa fa-lock input-icon"></i>
+				</div>
+			</div>
+			<div class="form-options">
+				<div class="checkbox">
+					<label>
+						<input type="checkbox" name="ifRemember"> ${I18n.login_remember_me}
+					</label>
+				</div>
+			</div>
+			<button type="submit" class="btn-login">${I18n.login_btn}</button>
+		</form>
+	</div>
+
+	<div class="login-footer">
+		XXL-JOB &copy; 2015-present, xuxueli
+	</div>
 
 <!-- 3-script start -->
 <@netCommon.commonScript />
@@ -324,7 +456,7 @@ $(function () {
 			label.remove();
 		},
 		errorPlacement : function(error, element) {
-			element.parent('div').append(error);
+			element.closest('.form-group').append(error);
 		},
 		submitHandler : function(form) {
 			$.post(base_url + "/auth/doLogin", $("#loginForm").serialize(), function(data, status) {
