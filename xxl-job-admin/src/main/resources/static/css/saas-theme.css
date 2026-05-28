@@ -22,8 +22,11 @@
 	--saas-danger: #EF4444;
 	--saas-info: #3B82F6;
 	--saas-radius: 8px;
-	--saas-radius-btn: 4px;
+	--saas-radius-btn: 6px;
 	--saas-radius-input: 6px;
+	--saas-height-base: 36px;
+	--saas-height-sm: 30px;
+	--saas-height-lg: 40px;
 	--saas-shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
 	--saas-shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
 	--saas-shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08);
@@ -125,6 +128,10 @@ body.hold-transition {
 /* ====== Content Area ====== */
 .content-wrapper {
 	background-color: var(--saas-bg) !important;
+}
+
+.content {
+	padding: 16px !important;
 }
 
 /* ====== Boxes / Cards ====== */
@@ -253,6 +260,7 @@ body.hold-transition {
 	border-color: var(--saas-border) !important;
 	color: var(--saas-text-secondary) !important;
 	background: var(--saas-bg-white) !important;
+	height: var(--saas-height-sm) !important;
 }
 
 .bootstrap-table .fixed-table-pagination .page-list .btn-group .btn.active {
@@ -264,6 +272,12 @@ body.hold-transition {
 .pagination > li > a {
 	color: var(--saas-text-secondary) !important;
 	border-color: var(--saas-border) !important;
+	height: var(--saas-height-sm) !important;
+	min-width: var(--saas-height-sm) !important;
+	display: inline-flex !important;
+	align-items: center;
+	justify-content: center;
+	padding: 0 8px !important;
 }
 
 .pagination > li > a:hover {
@@ -280,7 +294,7 @@ body.hold-transition {
 	color: #fff !important;
 }
 
-/* ====== Forms ====== */
+/* ====== Forms — Unified Height ====== */
 .form-control {
 	border: 1.5px solid var(--saas-border) !important;
 	border-radius: var(--saas-radius-input) !important;
@@ -288,7 +302,9 @@ body.hold-transition {
 	font-size: 13px !important;
 	box-shadow: none !important;
 	transition: border-color var(--saas-transition), box-shadow var(--saas-transition) !important;
-	height: 38px !important;
+	height: var(--saas-height-base) !important;
+	padding: 0 10px !important;
+	line-height: var(--saas-height-base) !important;
 }
 
 .form-control:focus {
@@ -310,21 +326,71 @@ select.form-control {
 	padding-right: 32px !important;
 }
 
+/* ====== Input Group — Unified Height ====== */
 .input-group-addon {
 	background: #F1F5F9 !important;
-	border-color: var(--saas-border) !important;
+	border: 1.5px solid var(--saas-border) !important;
 	color: var(--saas-text-secondary) !important;
 	font-size: 13px !important;
 	border-radius: var(--saas-radius-input) 0 0 var(--saas-radius-input) !important;
+	height: var(--saas-height-base) !important;
+	line-height: var(--saas-height-base) !important;
+	padding: 0 12px !important;
+	display: inline-flex !important;
+	align-items: center;
+	white-space: nowrap;
+	min-width: fit-content;
 }
 
 .input-group .form-control:first-child {
 	border-radius: 0 var(--saas-radius-input) var(--saas-radius-input) 0 !important;
 }
 
+.input-group {
+	display: flex !important;
+	align-items: stretch !important;
+}
+
+.input-group .form-control,
+.input-group-addon,
+.input-group-btn,
+.input-group-btn .btn {
+	height: var(--saas-height-base) !important;
+}
+
+.input-group-btn .btn {
+	border-radius: 0 var(--saas-radius-input) var(--saas-radius-input) 0 !important;
+	border-left: none !important;
+	flex-shrink: 0;
+}
+
+/* ====== cronGen input: constrain width inside col-sm-4 ====== */
+.schedule_conf .input-group {
+	width: 100% !important;
+}
+
+.schedule_conf .input-group .form-control {
+	flex: 1;
+	min-width: 0;
+}
+
+.schedule_conf .input-group-btn {
+	flex-shrink: 0;
+	width: auto !important;
+}
+
+.schedule_conf .input-group-btn .btn {
+	width: 36px;
+	padding: 0 !important;
+	justify-content: center;
+}
+
 textarea.form-control {
 	min-height: 80px;
+	height: auto !important;
 	resize: vertical;
+	line-height: 1.5 !important;
+	padding: 8px 10px !important;
 }
 
 /* ====== Labels ====== */
@@ -357,16 +423,21 @@ textarea.form-control {
 	color: var(--saas-text-secondary) !important;
 }
 
-/* ====== Buttons ====== */
+/* ====== Buttons — Unified Height ====== */
 .btn {
 	border-radius: var(--saas-radius-btn) !important;
 	font-size: 13px !important;
 	font-weight: 500 !important;
 	transition: all var(--saas-transition) !important;
-	padding: 6px 14px !important;
+	height: var(--saas-height-base) !important;
+	padding: 0 14px !important;
 	border: 1px solid transparent !important;
 	cursor: pointer;
 	letter-spacing: 0.2px;
+	display: inline-flex !important;
+	align-items: center;
+	justify-content: center;
+	line-height: 1 !important;
 }
 
 .btn-primary {
@@ -431,14 +502,23 @@ textarea.form-control {
 }
 
 .btn-sm {
-	padding: 3px 10px !important;
+	height: var(--saas-height-sm) !important;
+	padding: 0 10px !important;
 	font-size: 12px !important;
 	border-radius: var(--saas-radius-btn) !important;
 }
 
+.btn-lg {
+	height: var(--saas-height-lg) !important;
+	padding: 0 20px !important;
+	font-size: 14px !important;
+}
+
 .btn-block {
-	display: block;
+	display: flex !important;
 	width: 100%;
+	align-items: center;
+	justify-content: center;
 }
 
 /* ====== Modal ====== */
@@ -446,6 +526,14 @@ textarea.form-control {
 	border-radius: var(--saas-radius) !important;
 	border: none !important;
 	box-shadow: var(--saas-shadow-lg), 0 25px 50px -12px rgba(0,0,0,0.15) !important;
+}
+
+.modal-dialog {
+	overflow: visible !important;
+}
+
+.modal-body {
+	overflow: visible !important;
 }
 
 .modal-header {
@@ -504,9 +592,8 @@ textarea.form-control {
 }
 
 .modal-body .form-control,
-.modal-body select.form-control,
-.modal-body textarea.form-control {
-	height: 38px !important;
+.modal-body select.form-control {
+	height: var(--saas-height-base) !important;
 	vertical-align: middle;
 }
 
@@ -514,8 +601,24 @@ textarea.form-control {
 	height: auto !important;
 }
 
+.modal-body .input-group-addon {
+	height: var(--saas-height-base) !important;
+	line-height: var(--saas-height-base) !important;
+}
+
 .modal-body .form-horizontal .form-group {
 	margin-bottom: 14px !important;
+}
+
+/* ====== Modal Buttons — Centered ====== */
+.modal-body .col-sm-offset-3 {
+	margin-left: 0 !important;
+	text-align: center !important;
+	width: 100%;
+}
+
+.modal-body .col-sm-offset-3 .btn {
+	margin: 0 6px;
 }
 
 /* ====== Navbar Dropdown ====== */
@@ -532,6 +635,7 @@ textarea.form-control {
 	font-size: 13px !important;
 	padding: 8px 20px !important;
 	transition: all var(--saas-transition);
+	height: auto !important;
 }
 
 .navbar-custom-menu .dropdown-menu > li > a:hover {
@@ -655,7 +759,7 @@ textarea.textarea[readonly] {
 	line-height: 1.6 !important;
 }
 
-/* ====== Search Filter Area ====== */
+/* ====== Search Filter Area — Unified Height ====== */
 #data_filter .box-body {
 	padding: 14px 16px !important;
 }
@@ -667,16 +771,16 @@ textarea.textarea[readonly] {
 
 #data_filter .form-control,
 #data_filter select.form-control {
-	height: 36px !important;
+	height: var(--saas-height-base) !important;
 }
 
 #data_filter .input-group-addon {
-	height: 36px !important;
-	line-height: 36px !important;
+	height: var(--saas-height-base) !important;
+	line-height: var(--saas-height-base) !important;
 }
 
 #data_filter .btn-block {
-	height: 36px !important;
+	height: var(--saas-height-base) !important;
 	display: flex !important;
 	align-items: center;
 	justify-content: center;
@@ -792,6 +896,27 @@ textarea.textarea[readonly] {
 	background: rgba(255,255,255,0.15) !important;
 }
 
+.info-box.bg-aqua .info-box-number,
+.info-box.bg-yellow .info-box-number,
+.info-box.bg-green .info-box-number {
+	color: #fff !important;
+}
+
+.info-box.bg-aqua .info-box-text,
+.info-box.bg-aqua .progress-description,
+.info-box.bg-yellow .info-box-text,
+.info-box.bg-yellow .progress-description,
+.info-box.bg-green .info-box-text,
+.info-box.bg-green .progress-description {
+	color: rgba(255,255,255,0.85) !important;
+}
+
+.info-box.bg-aqua .progress,
+.info-box.bg-yellow .progress,
+.info-box.bg-green .progress {
+	background: rgba(0,0,0,0.1) !important;
+}
+
 .info-box.bg-yellow,
 .info-box.bg-yellow > .info-box-icon {
 	background: var(--saas-warning) !important;
@@ -801,19 +926,6 @@ textarea.textarea[readonly] {
 	background: rgba(255,255,255,0.15) !important;
 }
 
-.info-box.bg-yellow .info-box-number {
-	color: #fff !important;
-}
-
-.info-box.bg-yellow .info-box-text,
-.info-box.bg-yellow .progress-description {
-	color: rgba(255,255,255,0.75) !important;
-}
-
-.info-box.bg-yellow .progress {
-	background: rgba(0,0,0,0.1) !important;
-}
-
 .info-box.bg-green,
 .info-box.bg-green > .info-box-icon {
 	background: var(--saas-success) !important;
@@ -821,19 +933,6 @@ textarea.textarea[readonly] {
 
 .info-box.bg-green > .info-box-icon {
 	background: rgba(255,255,255,0.15) !important;
-}
-
-.info-box.bg-green .info-box-number {
-	color: #fff !important;
-}
-
-.info-box.bg-green .info-box-text,
-.info-box.bg-green .progress-description {
-	color: rgba(255,255,255,0.75) !important;
-}
-
-.info-box.bg-green .progress {
-	background: rgba(0,0,0,0.1) !important;
 }
 
 /* ================================================================
@@ -977,6 +1076,11 @@ textarea.textarea[readonly] {
 .layui-layer-btn a {
 	border-radius: var(--saas-radius-btn) !important;
 	font-size: 13px !important;
+	height: var(--saas-height-base) !important;
+	display: inline-flex !important;
+	align-items: center;
+	justify-content: center;
+	padding: 0 14px !important;
 }
 
 .layui-layer-setwin a {
@@ -1021,4 +1125,170 @@ textarea.textarea[readonly] {
 .help-doc pre {
 	padding: 12px 16px !important;
 	overflow-x: auto;
+}
+
+/* ================================================================
+   Radio & Checkbox Alignment
+   ================================================================ */
+.modal-body input[type="radio"],
+.modal-body input[type="checkbox"] {
+	margin-right: 6px;
+	vertical-align: middle;
+}
+
+/* ================================================================
+   Group list textarea override — remove inline styles
+   ================================================================ */
+.modal-body textarea.textarea {
+	background: #F1F5F9 !important;
+	border: 1.5px solid var(--saas-border) !important;
+	border-radius: var(--saas-radius-input) !important;
+	font-size: 13px !important;
+	line-height: 1.5 !important;
+	padding: 8px 10px !important;
+	width: 100% !important;
+	height: auto !important;
+	min-height: 80px;
+}
+
+/* ================================================================
+   Bootstrap Table Toolbar — Height Consistency
+   ================================================================ */
+.bootstrap-table .fixed-table-toolbar .bs-bars .btn {
+	height: var(--saas-height-sm) !important;
+}
+
+.fixed-table-toolbar .search input {
+	height: var(--saas-height-sm) !important;
+}
+
+/* ================================================================
+   iframe content area height fix
+   ================================================================ */
+.J_mainContent {
+	flex: 1;
+}
+
+/* ====== biz page body background ====== */
+body.hold-transition[style*="background-color"] {
+	background-color: var(--saas-bg) !important;
+}
+
+/* ================================================================
+   CronGen Popover — Scheduler Designer
+   ================================================================ */
+.modal .popover {
+	max-width: 460px !important;
+	width: auto !important;
+	z-index: 99999 !important;
+	border: 1px solid var(--saas-border) !important;
+	border-radius: var(--saas-radius) !important;
+	box-shadow: var(--saas-shadow-lg) !important;
+	font-family: var(--saas-font) !important;
+}
+
+.modal .popover .popover-title {
+	background: var(--saas-bg-white) !important;
+	border-bottom: 1px solid var(--saas-border) !important;
+	font-weight: 600 !important;
+	font-size: 14px !important;
+}
+
+.modal .popover .popover-content {
+	padding: 12px !important;
+}
+
+/* CronGen main container */
+#CronGenMainDiv {
+	width: 420px !important;
+	height: auto !important;
+}
+
+#CronGenMainDiv .nav-tabs {
+	border-bottom: 1px solid var(--saas-border) !important;
+}
+
+#CronGenMainDiv .nav-tabs > li > a {
+	font-size: 12px !important;
+	padding: 6px 10px !important;
+	color: var(--saas-text-secondary) !important;
+	border: 1px solid transparent !important;
+}
+
+#CronGenMainDiv .nav-tabs > li.active > a {
+	color: var(--saas-primary) !important;
+	border: 1px solid var(--saas-border) !important;
+	border-bottom-color: transparent !important;
+	font-weight: 600 !important;
+	background: var(--saas-bg-white) !important;
+}
+
+#CronGenMainDiv .tab-content {
+	border: 1px solid var(--saas-border) !important;
+	border-top: none !important;
+	border-radius: 0 0 var(--saas-radius) var(--saas-radius) !important;
+	padding: 10px !important;
+	margin-top: 0 !important;
+}
+
+#CronGenMainDiv .line {
+	padding: 4px 0;
+	font-size: 13px;
+	color: var(--saas-text);
+	line-height: 1.8;
+}
+
+#CronGenMainDiv .line input[type="radio"] {
+	margin-right: 6px;
+	vertical-align: middle;
+}
+
+#CronGenMainDiv .line input[type="text"] {
+	height: 26px !important;
+	width: 40px !important;
+	text-align: center;
+	border: 1px solid var(--saas-border) !important;
+	border-radius: 4px;
+	font-size: 12px;
+	padding: 0 4px;
+	margin: 0 2px;
+}
+
+#CronGenMainDiv .imp {
+	padding: 4px 0;
+	line-height: 1.8;
+}
+
+#CronGenMainDiv .imp input[type="checkbox"] {
+	margin: 0 2px;
+	vertical-align: middle;
+}
+
+/* CronGen "最近运行时间" textarea */
+#runTime {
+	width: 100% !important;
+	resize: none !important;
+	background: var(--saas-bg) !important;
+	border: 1px solid var(--saas-border) !important;
+	border-radius: var(--saas-radius-input) !important;
+	outline: none !important;
+	font-size: 12px !important;
+	font-family: 'SF Mono', 'Monaco', 'Consolas', monospace !important;
+	line-height: 1.6 !important;
+	padding: 8px 10px !important;
+	color: var(--saas-text-secondary) !important;
+}
+
+/* ====== schedule_conf layout in modal ====== */
+.modal .schedule_conf {
+	overflow: visible;
+}
+
+.modal .schedule_conf .col-sm-4 {
+	overflow: visible;
+}
+
+/* ====== Schedule config row: prevent overflow ====== */
+.modal .form-group {
+	overflow: visible;
 }

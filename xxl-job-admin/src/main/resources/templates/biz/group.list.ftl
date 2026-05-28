@@ -11,7 +11,7 @@
 	<!-- 1-style end -->
 
 </head>
-<body class="hold-transition" style="background-color: #ecf0f5;">
+<body class="hold-transition">
 <div class="wrapper">
 	<section class="content">
 
@@ -112,7 +112,7 @@
 							<div class="form-group">
 								<label for="lastname" class="col-sm-2 control-label">${I18n.jobgroup_field_registryList}<font color="red">*</font></label>
 								<div class="col-sm-10">
-									<textarea class="textarea" name="addressList" maxlength="20000" placeholder="${I18n.jobgroup_field_registryList_placeholder}" readonly="readonly" style="background-color:#eee; width: 100%; height: 100px; font-size: 14px; line-height: 15px; border: 1px solid #dddddd; padding: 5px;"></textarea>
+									<textarea class="textarea" name="addressList" maxlength="20000" placeholder="${I18n.jobgroup_field_registryList_placeholder}" readonly="readonly"></textarea>
 								</div>
 							</div>
 							<hr>
@@ -156,7 +156,7 @@
 							<div class="form-group">
 								<label for="lastname" class="col-sm-2 control-label">${I18n.jobgroup_field_registryList}<font color="red">*</font></label>
 								<div class="col-sm-10">
-									<textarea class="textarea" name="addressList" maxlength="20000" placeholder="${I18n.jobgroup_field_registryList_placeholder}" readonly="readonly" style="background-color:#eee; width: 100%; height: 100px; font-size: 14px; line-height: 15px; border: 1px solid #dddddd; padding: 5px;"></textarea>
+									<textarea class="textarea" name="addressList" maxlength="20000" placeholder="${I18n.jobgroup_field_registryList_placeholder}" readonly="readonly"></textarea>
 								</div>
 							</div>
 							<hr>

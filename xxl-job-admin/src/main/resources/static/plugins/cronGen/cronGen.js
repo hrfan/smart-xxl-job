@@ -9,8 +9,8 @@
             }
             options = $.extend({}, $.fn.cronGen.defaultOptions, options);
             //create top menu
-            var cronContainer = $("<div/>", { id: "CronContainer", style: "display:none;width:300px;height:300px;" });
-            var mainDiv = $("<div/>", { id: "CronGenMainDiv", style: "width:410px;height:420px;" });
+            var cronContainer = $("<div/>", { id: "CronContainer", style: "display:none;" });
+            var mainDiv = $("<div/>", { id: "CronGenMainDiv", style: "width:auto;height:auto;" });
             var topMenu = $("<ul/>", { "class": "nav nav-tabs", id: "CronGenTabs" });
             $('<li/>', { 'class': 'active' }).html($('<a id="SecondlyTab" href="#Secondly">秒</a>')).appendTo(topMenu);
             $('<li/>').html($('<a id="MinutesTab" href="#Minutes">分钟</a>')).appendTo(topMenu);
@@ -321,7 +321,7 @@
             // resultsName = $(this).prop("id");
             // $(this).prop("name", resultsName);
 
-            var runTime = '<br style="padding-top: 10px"><label>最近运行时间: </label></br><textarea id="runTime" rows="6" style="width: 90%;resize: none;background: none;border: none;outline: none;" readonly = readonly></textarea></div>';
+            var runTime = '<br style="padding-top: 10px"><label>最近运行时间: </label></br><textarea id="runTime" rows="6" readonly="readonly"></textarea></div>';
 
             $(span12).appendTo(row);
             $(row).appendTo(container);
@@ -356,7 +356,7 @@
                 content: function () {
                     return $(cronContainer).html();
                 },
-                template: '<div class="popover" style="max-width:500px !important; width:425px;left:-341.656px;"><div class="arrow"></div><div class="popover-inner"><h3 class="popover-title"></h3><div class="popover-content"><p></p></div></div></div>',
+                template: '<div class="popover" style="max-width:460px !important; width:auto;"><div class="arrow"></div><div class="popover-inner"><h3 class="popover-title"></h3><div class="popover-content"><p></p></div></div></div>',
                 sanitize:false,
                 placement: options.direction
 

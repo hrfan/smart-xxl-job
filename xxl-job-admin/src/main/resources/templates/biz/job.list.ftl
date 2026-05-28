@@ -10,7 +10,7 @@
 	<!-- 1-style end -->
 
 </head>
-<body class="hold-transition" style="background-color: #ecf0f5;">
+<body class="hold-transition">
 <div class="wrapper">
 	<section class="content">
 

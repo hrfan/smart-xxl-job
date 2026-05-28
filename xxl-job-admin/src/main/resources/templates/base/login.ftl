@@ -35,15 +35,29 @@
 		* { box-sizing: border-box; margin: 0; padding: 0; }
 
 		/* ====== Override AdminLTE ====== */
+		html, body {
+			height: 100% !important;
+		}
+
 		body.hold-transition,
 		body.hold-transition.login-page {
 			background: var(--color-bg) !important;
-			min-height: 100vh !important;
+			height: 100% !important;
 			display: flex !important;
+			flex-direction: row !important;
 			font-family: var(--font) !important;
 			padding: 0 !important;
 			margin: 0 !important;
 			color: var(--color-text-primary);
+			overflow: hidden !important;
+		}
+
+		/* ====== Login Container ====== */
+		.login-container {
+			display: flex;
+			flex-direction: row;
+			width: 100%;
+			min-height: 100%;
 		}
 
 		/* ====== Left Brand Panel ====== */
@@ -318,7 +332,7 @@
 
 		/* Footer */
 		.login-footer {
-			position: fixed;
+			position: absolute;
 			bottom: 20px;
 			right: 40px;
 			color: var(--color-text-muted);
@@ -330,6 +344,11 @@
 			body.hold-transition,
 			body.hold-transition.login-page {
 				flex-direction: column !important;
+				overflow: auto !important;
+			}
+			.login-container {
+				flex-direction: column;
+				min-height: 100vh;
 			}
 			.login-brand {
 				padding: 36px 24px;
@@ -353,50 +372,52 @@
 </head>
 <body class="hold-transition">
 
-	<!-- Left brand panel -->
-	<div class="login-brand">
-		<div class="brand-content">
-			<div class="brand-logo">XX</div>
-			<h1 class="brand-title">XXL-JOB</h1>
-			<p class="brand-subtitle">${I18n.admin_name}</p>
-			<ul class="brand-features">
-				<li><i class="fa fa-check-circle"></i> 可视化任务调度管理</li>
-				<li><i class="fa fa-check-circle"></i> 弹性扩容分布式执行</li>
-				<li><i class="fa fa-check-circle"></i> 丰富的任务触发策略</li>
-			</ul>
+	<div class="login-container">
+		<!-- Left brand panel -->
+		<div class="login-brand">
+			<div class="brand-content">
+				<div class="brand-logo">XX</div>
+				<h1 class="brand-title">XXL-JOB</h1>
+				<p class="brand-subtitle">${I18n.admin_name}</p>
+				<ul class="brand-features">
+					<li><i class="fa fa-check-circle"></i> 可视化任务调度管理</li>
+					<li><i class="fa fa-check-circle"></i> 弹性扩容分布式执行</li>
+					<li><i class="fa fa-check-circle"></i> 丰富的任务触发策略</li>
+				</ul>
+			</div>
 		</div>
-	</div>
 
-	<!-- Right login form -->
-	<div class="login-form-panel">
-		<div class="form-header">
-			<h2>欢迎回来</h2>
-			<p>请登录到调度中心</p>
+		<!-- Right login form -->
+		<div class="login-form-panel">
+			<div class="form-header">
+				<h2>欢迎回来</h2>
+				<p>请登录到调度中心</p>
+			</div>
+			<form id="loginForm" method="post">
+				<div class="form-group">
+					<label>账号</label>
+					<div class="input-wrapper">
+						<input type="text" name="userName" class="form-control" placeholder="${I18n.login_username_placeholder}" maxlength="20" autocomplete="username">
+						<i class="fa fa-user input-icon"></i>
+					</div>
+				</div>
+				<div class="form-group">
+					<label>密码</label>
+					<div class="input-wrapper">
+						<input type="password" name="password" class="form-control" placeholder="${I18n.login_password_placeholder}" maxlength="20" autocomplete="current-password">
+						<i class="fa fa-lock input-icon"></i>
+					</div>
+				</div>
+				<div class="form-options">
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" name="ifRemember"> ${I18n.login_remember_me}
+						</label>
+					</div>
+				</div>
+				<button type="submit" class="btn-login">${I18n.login_btn}</button>
+			</form>
 		</div>
-		<form id="loginForm" method="post">
-			<div class="form-group">
-				<label>账号</label>
-				<div class="input-wrapper">
-					<input type="text" name="userName" class="form-control" placeholder="${I18n.login_username_placeholder}" maxlength="20" autocomplete="username">
-					<i class="fa fa-user input-icon"></i>
-				</div>
-			</div>
-			<div class="form-group">
-				<label>密码</label>
-				<div class="input-wrapper">
-					<input type="password" name="password" class="form-control" placeholder="${I18n.login_password_placeholder}" maxlength="20" autocomplete="current-password">
-					<i class="fa fa-lock input-icon"></i>
-				</div>
-			</div>
-			<div class="form-options">
-				<div class="checkbox">
-					<label>
-						<input type="checkbox" name="ifRemember"> ${I18n.login_remember_me}
-					</label>
-				</div>
-			</div>
-			<button type="submit" class="btn-login">${I18n.login_btn}</button>
-		</form>
 	</div>
 
 	<div class="login-footer">
